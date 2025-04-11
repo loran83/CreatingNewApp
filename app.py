@@ -48,8 +48,14 @@ if start_button:
 
     st.session_state['df_experiment_results'] = pd.concat([
         st.session_state['df_experiment_results'],
-        pd.DataFrame([[st.session_state['experiment_no'], number_of_trials, mean]],
-                     columns=['no', 'iterations', 'mean'])
+        pd.DataFrame(
+    {
+        'no': [int(st.session_state['experiment_no'])],
+        'iterations': [int(number_of_trials)],
+        'mean': [float(mean)]
+    }
+)
+
     ], axis=0).reset_index(drop=True)
 
 # Display results
