@@ -12,8 +12,9 @@ if 'df_experiment_results' not in st.session_state:
 
 st.header('Tossing a Coin')
 
-data = pd.DataFrame({'value': [0.5]})
-st.line_chart(data)
+chart = pd.DataFrame({
+    'Score': [0.5, 0.7, 0.9, 1.1, 0.8]
+})
 
 def toss_coin(n):
 
@@ -28,7 +29,7 @@ def toss_coin(n):
         if r == 1:
             outcome_1_count += 1
         mean = outcome_1_count / outcome_no
-        data.add_rows([mean])
+        chart.add_rows([mean])
         time.sleep(0.05)
 
     return mean
