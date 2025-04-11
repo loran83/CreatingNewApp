@@ -12,9 +12,7 @@ if 'df_experiment_results' not in st.session_state:
 
 st.header('Tossing a Coin')
 
-chart = pd.DataFrame({
-    'Score': [0.5, 0.7, 0.9, 1.1, 0.8]
-})
+chart = st.line_chart([0.5])
 
 def toss_coin(n):
 
